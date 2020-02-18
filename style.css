@@ -1,0 +1,40 @@
+html, body{
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/*Alinhamentos, espaçamentos, larguras e alturas.*/
+header, main, footer{
+    text-align: center;
+}
+
+header, .form, main{
+    margin:0, auto, 70px, auto; /*Definida em sentido horário*/
+    width: 90%;
+    max-width: 500px;
+}
+
+header h1, main h2{
+    margin-bottom: 70px;
+}
+
+
+.form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.doadores{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    /*Pega o espaço e fraciona para todos os elementos*/
+}
+
+footer{
+    margin-top: auto;
+}
