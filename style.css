@@ -1,3 +1,4 @@
+/*Global*/
 html, body{
     margin: 0;
 }
@@ -19,16 +20,25 @@ header, .form, main{
     max-width: 500px;
 }
 
+/*Títulos*/
 header h1, main h2{
     margin-bottom: 70px;
 }
 
-
+/*FORM*/
 .form{
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
+form input, form button{
+    width: 100%;
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    padding: 8px 16px;
+}
+
+/*MAIN*/
 .doadores{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr; 
@@ -38,3 +48,4 @@ header h1, main h2{
 footer{
     margin-top: auto;
 }
+
