@@ -1,3 +1,4 @@
+/*GLOBAL*/
 html, body{
     margin: 0;
 }
@@ -8,6 +9,16 @@ body{
     height: 100vh;
 }
 
+/*TÍTULOS*/
+header h1, main h2{
+    margin-bottom: 70px;
+}
+
+.form h2{
+    text-align: right;
+}
+
+/*ESTRUTURA*/
 /*Alinhamentos, espaçamentos, larguras e alturas.*/
 header, main, footer{
     text-align: center;
@@ -19,17 +30,29 @@ header, .form, main{
     max-width: 500px;
 }
 
-header h1, main h2{
-    margin-bottom: 70px;
+header button{
+    padding: 8px 16px;
+    border-radius: 4px;
 }
 
-
-.form{
+/*FORM*/
+section.form{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    /*Espaçamento do grid*/
+    grid-gap: 45px;
 }
 
-.doadores{
+form input, form button{
+    width: 100%; /*Largura total*/
+    margin-bottom: 4px;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px red solid;
+}
+
+main .doadores{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr; 
     /*Pega o espaço e fraciona para todos os elementos*/
@@ -37,4 +60,6 @@ header h1, main h2{
 
 footer{
     margin-top: auto;
+    padding: 16px;
+    border: 1px solid #EEE;
 }
