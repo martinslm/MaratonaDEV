@@ -1,4 +1,7 @@
-/*Global*/
+/*GLOBAL*/
+*{
+    box-sizing: border-box;
+}
 html, body{
     margin: 0;
 }
@@ -7,8 +10,26 @@ body{
     display: flex;
     flex-direction: column;
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
 }
 
+/*TÍTULOS*/
+header h1, main h2{
+    margin-bottom: 70px;
+}
+
+h1,h2{
+    color: #000000cc;
+}
+
+.form h2{
+    text-align: right;
+    color: #ffffffee;
+    font-size: 18px;
+}
+
+/*ESTRUTURA*/
 /*Alinhamentos, espaçamentos, larguras e alturas.*/
 header, main, footer{
     text-align: center;
@@ -20,26 +41,63 @@ header, .form, main{
     max-width: 500px;
 }
 
-/*Títulos*/
-header h1, main h2{
-    margin-bottom: 70px;
+header button{
+    margin-top: 16px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #ff4f4f;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+}
+
+header.logo{
+    width: 120px;
+    margin: 70px 0;
 }
 
 /*FORM*/
-.form{
+section.form{
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    /*Espaçamento do grid*/
+    grid-gap: 45px;
+
+    background-color: #ff4f4f;
+    padding: 16px 64px;
+
+    align-items: center;
+
+    border-radius: 6px;
 }
 
 form input, form button{
-    width: 100%;
+    width: 100%; /*Largura total*/
     margin-bottom: 4px;
-    box-sizing: border-box;
     padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px #ffffff88 solid;
 }
 
-/*MAIN*/
-.doadores{
+form input{
+    background-color: transparent;
+
+}
+
+form input::placeholder{
+    color: #ffffffaa;
+}
+
+form button{
+    font-weight: bold;
+}
+
+main h2 span{
+    color: #ff4f4f;
+}
+
+main .doadores{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr; 
     /*Pega o espaço e fraciona para todos os elementos*/
@@ -47,5 +105,6 @@ form input, form button{
 
 footer{
     margin-top: auto;
+    padding: 16px;
+    border: 1px solid #EEE;
 }
-
