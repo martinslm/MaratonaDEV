@@ -8,6 +8,17 @@ server.use(express.static('public'))
 //habilitar corpo do form
 server.use(express.urlencoded({extended: true}))
 
+//configurar banco de dados
+const Pool = require('pg').Pool
+const db = new Pool({
+    user: 'postgres',
+    password: '0000',
+    host: 'localhost',
+    port: 5432,
+    database: 'doe'
+
+})
+
 //configurando a template engine
 const nunjucks = require("nunjucks")
 nunjucks.configure("./", {
@@ -15,28 +26,16 @@ nunjucks.configure("./", {
     noCache: true,
 }) //indica que o index html está na raiz do projeto
 
-const doadores= [
-    {
-        nome: "Larissa",
-        sangue: "A+"
-    },
-    {
-        nome: "Christian",
-        sangue: "B-"
-    },
-    {
-        nome: "Guilherme",
-        sangue: "AB-"
-    },
-    {
-        nome: "Leonardo",
-        sangue: "O+"
-    }
-]
-
 //configurar a apresentação da página
 server.get("/", function(request, response){
+    
+    db.query("SELECT * FROM doadores", function(err, result){
+        if(err)
+            return response.send("Erro de banco de dados")
+   
+    const doadores = result.rows;
     return response.render("index.html", {doadores});
+    })
 })
 
 server.post("/", function(request, response){
@@ -44,12 +43,22 @@ server.post("/", function(request, response){
     const email = request.body.email
     const tipoSanguineo = request.body.tipoSanguineo
 
-    doadores.push({
-        nome: nome,
-        sangue: tipoSanguineo,
-    })
+    if(nome == "" || email == "" || tipoSanguineo == "")
+        return response.send("Todos os campos são obrigatórios.")
 
-    return response.redirect("/")
+    const query = `INSERT INTO doadores ("nome","email", "sangue") 
+                   VALUES ($1, $2, $3)`
+
+    db.query(query, [nome, email, tipoSanguineo], function(err){
+
+        if(err) 
+            return res.send("Erro no banco de dados.")
+    
+        return response.redirect("/")
+
+    })
 })
-//ligar o sservidor e permitir acesso na porta 3000
+//ligar o servidor e permitir acesso na porta 3000
 server.listen(3000)
+
+//npm start
