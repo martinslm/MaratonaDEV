@@ -4,6 +4,7 @@
 }
 html, body{
     margin: 0;
+    align-items: center;
 }
 
 body{
@@ -16,7 +17,7 @@ body{
 
 /*TÍTULOS*/
 header h1, main h2{
-    margin-bottom: 70px;
+    margin-bottom: 50px;
 }
 
 h1,h2{
@@ -42,7 +43,7 @@ header, .form, main{
 }
 
 header button{
-    margin-top: 16px;
+    margin: 20px 0;
     padding: 8px 16px;
     border-radius: 4px;
     background-color: #ff4f4f;
@@ -51,13 +52,18 @@ header button{
     border: none;
 }
 
-header.logo{
-    width: 120px;
-    margin: 70px 0;
+.logo{
+    width: 150px;
+    margin-top: 20px;
+}
+
+header p{
+    font-size: 14px;
 }
 
 /*FORM*/
 section.form{
+    margin: 10px 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -103,8 +109,47 @@ main .doadores{
     /*Pega o espaço e fraciona para todos os elementos*/
 }
 
+main .sangue{
+    color: #ff4f4f;
+    font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.sangue::before{
+    content: "";
+    background-color: #ff4f4f11;
+    width: 40px;
+    height: 40px;
+
+    position: absolute;
+
+    border-radius: 50%;
+    border-top-right-radius: 0;
+    transform: rotate(-45deg);
+}
+
+.doadores p{
+    margin-top: 24px;
+    font-size: 14px;
+}
+
 footer{
     margin-top: auto;
     padding: 16px;
     border: 1px solid #EEE;
+}
+
+section.form{
+    transition: all 300ms;
+}
+
+section.form.hide{
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    margin-bottom: -40px;
 }
